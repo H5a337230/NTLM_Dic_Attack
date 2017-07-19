@@ -1,6 +1,9 @@
 # NTLM_Dic_Attack
 Python script to attack NTLM Authentication on web [dictionary attack method]
 
+You should install requests-ntlm package first
+for that, you can download it from " https://github.com/requests/requests-ntlm " or just use " pip install requests-ntlm "
+
 
 USAGE:
 python NTLM_Bruter.py(-h)           [ Displays help menu ]
