@@ -19,19 +19,19 @@ requests.packages.urllib3.disable_warnings()
 #requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'RC4-MD5'
 
 def netcheck():
-    try:
-    	teaddr = 'google.com'
-        requn = requests.get('https://'+teaddr, timeout = 30)
-        # HTTP errors are not raised by default, this statement does that
-        stC = requn.status_code
-        if (stC != 404):
+   try:
+      teaddr = 'google.com'
+      requn = requests.get('https://'+teaddr, timeout = 30)
+      # HTTP errors are not raised by default, this statement does that
+      stC = requn.status_code
+      if (stC != 404):
         	return True
         #requn.raise_for_status()
-    except requests.HTTPError as e:
+   except requests.HTTPError as e:
         print(Fore.YELLOW + "Checking internet connection failed, status code {0}.".format(e.response.status_code))
-    except requests.ConnectionError:
+   except requests.ConnectionError:
         print(Fore.YELLOW + "No internet connection available.")
-    return False
+   return False
 
 def targcheck(taaddr):
 	try:
@@ -75,9 +75,9 @@ def main(addr,uf,pf,delay):
 
 	try:
 		print(Fore.GREEN + '\n[-]Testing with below usernames and passwords:\n')
-		while unum < range(len(userFile)):
+		while unum < len(userFile):
 			print(Fore.GREEN + 'username: ' + userFile[unum])
-			while pnum < range(len(passFile)):
+			while pnum < len(passFile):
 				if (netcheck()):
 					if (targcheck(addr) == True):
 						print(Fore.GREEN + '\tpassword: ' + passFile[pnum])
